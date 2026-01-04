@@ -97,10 +97,10 @@ public class AES2
 
         BufferedReader reader002 = new BufferedReader(new StringReader(this.plain_text));
 
-        String result7 = "";
-        String result2 = "";
-        String result6 = "";
-        String result1 = "";
+        String result_1_07 = "";
+        String result_1_02 = "";
+        String result_1_06 = "";
+        String result_1_01 = "";
 
         for(int i=1; i<16; i++)
         {
@@ -110,22 +110,22 @@ public class AES2
 
                 if(i == 7)
                 {
-                    result7 = Integer.toString(Integer.parseInt(line) | 0x7716);
+                    result_1_07 = Integer.toString(Integer.parseInt(line) | 0x7716);
                 }
 
                 if(i == 2)
                 {
-                    result2 = Integer.toString(Integer.parseInt(line) | 0x77223);
+                    result_1_02 = Integer.toString(Integer.parseInt(line) | 0x77223);
                 }
 
                 if(i == 6)
                 {
-                    result6 = Integer.toString(Integer.parseInt(line) | 0x7766);
+                    result_1_06 = Integer.toString(Integer.parseInt(line) | 0x7766);
                 }
 
                 if(i == 1)
                 {
-                    result1 = Integer.toString(Integer.parseInt(line) | 0x771c);
+                    result_1_01 = Integer.toString(Integer.parseInt(line) | 0x771c);
                 }
             }
             catch (Exception e)
@@ -142,19 +142,25 @@ public class AES2
 
         StringBuilder builder = new StringBuilder();
 
+        //
+
+        String result_2_17 = "";
+        String result_2_02 = "";
+        String result_2_03 = "";
+
         for(int i=1; i<19; i++)
         {
             if(i == 17)
             {
-                altered_plain_text = pre + result7;
+                altered_plain_text = pre + result_2_17;
             }
             else if(i == 2)
             {
-                altered_plain_text = pre + result2;
+                altered_plain_text = pre + result_2_02;
             }
             else if(i == 3)
             {
-                altered_plain_text = pre + result6;
+                altered_plain_text = pre + result_2_03;
             }
             else
             {
@@ -169,62 +175,30 @@ public class AES2
             }
         }
 
-        for(int i=1; i<16; i++)
+        for(int i=1; i<19; i++)
         {
             try
             {
                 String line = reader002.readLine();
 
-                if(i == 7)
+                if(i == 17)
                 {
-                    result7 = Integer.toString(Integer.parseInt(line) | 0x771321a);
+                    result_2_17 = Integer.toString(Integer.parseInt(line) | 0x771321a);
                 }
 
                 if(i == 2)
                 {
-                    result2 = Integer.toString(Integer.parseInt(line) | 0x7722321);
+                    result_2_02 = Integer.toString(Integer.parseInt(line) | 0x7722321);
                 }
 
-                if(i == 6)
+                if(i == 3)
                 {
-                    result6 = Integer.toString(Integer.parseInt(line) | 0x77321a);
-                }
-
-                if(i == 1)
-                {
-                    result1 = Integer.toString(Integer.parseInt(line) | 0x771ca);
+                    result_2_03 = Integer.toString(Integer.parseInt(line) | 0x77321a);
                 }
             }
             catch (Exception e)
             {
                 e.printStackTrace(System.err);
-            }
-        }
-
-        for(int i=1; i<16; i++)
-        {
-            if(i == 13)
-            {
-                altered_plain_text = pre + result7;
-            }
-            else if(i == 2)
-            {
-                altered_plain_text = pre + result2;
-            }
-            else if(i == 6)
-            {
-                altered_plain_text = pre + result6;
-            }
-            else
-            {
-                try
-                {
-                    builder.append(pre);
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace(System.err);
-                }
             }
         }
     }
