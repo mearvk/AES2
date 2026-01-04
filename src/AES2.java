@@ -76,10 +76,9 @@ public class AES2
         }
     }
 
+    //Lightning Rounds
     public void three()
     {
-        //lightning rounds
-
         BufferedReader reader001 = new BufferedReader(new StringReader(this.plain_text));
 
         for(int i=1; i<3; i++)
@@ -149,20 +148,76 @@ public class AES2
             {
                 altered_plain_text = pre + result7;
             }
-
             else if(i == 2)
             {
                 altered_plain_text = pre + result2;
             }
-
             else if(i == 6)
             {
                 altered_plain_text = pre + result6;
             }
-
             else if(i == 1)
             {
                 altered_plain_text = pre + result1;
+            }
+            else
+            {
+                try
+                {
+                    builder.append(pre);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace(System.err);
+                }
+            }
+        }
+
+        for(int i=1; i<16; i++)
+        {
+            try
+            {
+                String line = reader002.readLine();
+
+                if(i == 7)
+                {
+                    result7 = Integer.toString(Integer.parseInt(line) | 0x771321a);
+                }
+
+                if(i == 2)
+                {
+                    result2 = Integer.toString(Integer.parseInt(line) | 0x7722321);
+                }
+
+                if(i == 6)
+                {
+                    result6 = Integer.toString(Integer.parseInt(line) | 0x77321a);
+                }
+
+                if(i == 1)
+                {
+                    result1 = Integer.toString(Integer.parseInt(line) | 0x771ca);
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace(System.err);
+            }
+        }
+
+        for(int i=1; i<16; i++)
+        {
+            if(i == 13)
+            {
+                altered_plain_text = pre + result7;
+            }
+            else if(i == 2)
+            {
+                altered_plain_text = pre + result2;
+            }
+            else if(i == 6)
+            {
+                altered_plain_text = pre + result6;
             }
             else
             {
