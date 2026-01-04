@@ -142,9 +142,9 @@ public class AES2
 
         StringBuilder builder = new StringBuilder();
 
-        for(int i=1; i<16; i++)
+        for(int i=1; i<19; i++)
         {
-            if(i == 7)
+            if(i == 17)
             {
                 altered_plain_text = pre + result7;
             }
@@ -152,13 +152,9 @@ public class AES2
             {
                 altered_plain_text = pre + result2;
             }
-            else if(i == 6)
+            else if(i == 3)
             {
                 altered_plain_text = pre + result6;
-            }
-            else if(i == 1)
-            {
-                altered_plain_text = pre + result1;
             }
             else
             {
