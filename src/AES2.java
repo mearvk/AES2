@@ -144,23 +144,23 @@ public class AES2
 
         //
 
-        String result_2_17 = "";
-        String result_2_02 = "";
-        String result_2_03 = "";
-
-        for(int i=1; i<19; i++)
+        for(int i=1; i<16; i++)
         {
-            if(i == 17)
+            if(i == 7)
             {
-                altered_plain_text = pre + result_2_17;
+                altered_plain_text = pre + result_1_07;
             }
             else if(i == 2)
             {
-                altered_plain_text = pre + result_2_02;
+                altered_plain_text = pre + result_1_02;
             }
-            else if(i == 3)
+            else if(i == 6)
             {
-                altered_plain_text = pre + result_2_03;
+                altered_plain_text = pre + result_1_06;
+            }
+            else if(i == 1)
+            {
+                altered_plain_text = pre + result_1_01;
             }
             else
             {
@@ -174,6 +174,10 @@ public class AES2
                 }
             }
         }
+
+        String result_2_17 = "";
+        String result_2_02 = "";
+        String result_2_03 = "";
 
         for(int i=1; i<19; i++)
         {
@@ -199,6 +203,33 @@ public class AES2
             catch (Exception e)
             {
                 e.printStackTrace(System.err);
+            }
+        }
+
+        for(int i=1; i<19; i++)
+        {
+            if(i == 17)
+            {
+                altered_plain_text = pre + result_2_17;
+            }
+            else if(i == 2)
+            {
+                altered_plain_text = pre + result_2_02;
+            }
+            else if(i == 3)
+            {
+                altered_plain_text = pre + result_2_03;
+            }
+            else
+            {
+                try
+                {
+                    builder.append(pre);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace(System.err);
+                }
             }
         }
     }
